@@ -9,15 +9,15 @@
   <meta property="og:title" content="沉香 · 东方顶级沉香品牌">
   <meta property="og:description" content="源自东方秘境的顶级沉香品牌。以匠心传承千年香道文化。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://koishi-cky.github.io/chenxiang/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+  <meta property="og:image" content="https://chenxiang.pages.dev/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://koishi-cky.github.io/chenxiang/">
+  <meta property="og:url" content="https://chenxiang.pages.dev/">
   <meta property="og:site_name" content="沉香">
   <meta property="og:locale" content="zh_CN">
   <meta itemprop="name" content="沉香 · 东方顶级沉香品牌">
   <meta itemprop="description" content="源自东方秘境的顶级沉香品牌。以匠心传承千年香道文化。">
-  <meta itemprop="image" content="https://koishi-cky.github.io/chenxiang/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+  <meta itemprop="image" content="https://chenxiang.pages.dev/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🌿</text></svg>">
 
   <style>
@@ -668,7 +668,10 @@
 
   <!-- ======== HERO ======== -->
   <section id="home" class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline
+           x5-video-player-type="h5" x5-video-player-fullscreen="false"
+           x5-video-orientation="portraint"
+           preload="auto"
            poster="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
       <source src="videos/hero_bg.mp4" type="video/mp4">
     </video>
@@ -1071,6 +1074,38 @@
 
     // ── Trigger hero animation on load ──
     window.dispatchEvent(new Event('scroll'));
+
+    // ── Force hero video autoplay (critical for mobile & WeChat) ──
+    (function forceHeroPlay() {
+      var v = document.getElementById('heroVideo');
+      if (!v) return;
+
+      // Try to play immediately
+      var playPromise = v.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {
+          // Autoplay was blocked, retry on first user interaction
+          var retry = function() {
+            v.play().catch(function(){});
+            document.removeEventListener('touchstart', retry);
+            document.removeEventListener('click', retry);
+            document.removeEventListener('scroll', retry);
+          };
+          document.addEventListener('touchstart', retry, { once: true });
+          document.addEventListener('click', retry, { once: true });
+        });
+      }
+
+      // WeChat X5: sometimes needs visibility change to trigger
+      document.addEventListener('WeixinJSBridgeReady', function() {
+        v.play().catch(function(){});
+      });
+
+      // Fallback: retry after page fully loads
+      window.addEventListener('load', function() {
+        v.play().catch(function(){});
+      });
+    })();
 
   })();
   </script>
