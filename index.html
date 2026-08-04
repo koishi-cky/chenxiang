@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沉香 · 东方顶级沉香品牌</title>
+  <meta name="description" content="沉香 —— 源自东方秘境的顶级沉香品牌。以匠心传承千年香道文化，为收藏家与香道爱好者呈现稀世珍品。">
+  <meta name="keywords" content="沉香,品牌,香道,收藏,东方美学,奢侈品">
+  <meta property="og:title" content="沉香 · 东方顶级沉香品牌">
+  <meta property="og:description" content="源自东方秘境的顶级沉香品牌。以匠心传承千年香道文化。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://chenxiang.pages.dev/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://chenxiang.pages.dev/">
+  <meta property="og:site_name" content="沉香">
+  <meta property="og:locale" content="zh_CN">
+  <meta itemprop="name" content="沉香 · 东方顶级沉香品牌">
+  <meta itemprop="description" content="源自东方秘境的顶级沉香品牌。以匠心传承千年香道文化。">
+  <meta itemprop="image" content="https://chenxiang.pages.dev/images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🌿</text></svg>">
+
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #c9a96e #0a0a0a; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #c9a96e; border-radius: 3px; }
+
+    :root {
+      --bg-deep:    #080808;
+      --bg-surface: #111111;
+      --bg-card:    #181818;
+      --gold:       #c9a96e;
+      --gold-light: #dcc090;
+      --gold-dark:  #a6843c;
+      --text:       #e8e4dd;
+      --text-muted: #8a857d;
+      --text-dim:   #5a5550;
+      --border:     rgba(255,255,255,0.06);
+      --radius:     12px;
+      --radius-sm: 6px;
+      --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    body {
+      font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", Georgia, serif;
+      background: var(--bg-deep);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+    }
+    a { color: var(--gold); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--gold-light); }
+
+    /* ============ NAVIGATION ============ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s ease, backdrop-filter 0.5s ease;
+    }
+    .nav.scrolled {
+      background: rgba(8,8,8,0.92);
+      border-bottom: 1px solid var(--border);
+    }
+    @supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+      .nav.scrolled {
+        background: rgba(8,8,8,0.85);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+      }
+    }
+    .nav-brand {
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      width: 24px; height: 1px;
+      background: var(--text);
+      transition: var(--transition);
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(8,8,8,0.7) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero-content .subtitle {
+      display: block;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-content h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 200;
+      letter-spacing: 0.2em;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 1s 0.6s forwards;
+    }
+    .hero-content .tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+    .hero-content .btn {
+      display: inline-block;
+      padding: 14px 48px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      background: transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .hero-content .btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      animation: bounce 2s infinite;
+      opacity: 0;
+      animation: fadeUp 1s 1.5s forwards, bounce 2s 2s infinite;
+    }
+    .scroll-indicator span { width: 1px; height: 28px; background: var(--text-muted); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ============ SECTIONS ============ */
+    .section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .section-header.visible { opacity: 1; transform: translateY(0); }
+    .section-header .en {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-family: "Georgia", "Times New Roman", serif;
+      text-transform: uppercase;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-header .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 20px;
+      opacity: 0.6;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============ ABOUT ============ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-image {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .about-image.visible { opacity: 1; transform: translateX(0); }
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 8s ease;
+    }
+    .about-image:hover img { transform: scale(1.08); }
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .about-text {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+    }
+    .about-text.visible { opacity: 1; transform: translateX(0); }
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      margin-bottom: 28px;
+      color: var(--gold);
+    }
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .about-stat .num {
+      font-size: 2rem;
+      font-weight: 200;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .about-stat .lbl {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* ============ PRODUCTS ============ */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .product-card.visible { opacity: 1; transform: translateY(0); }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201,169,110,0.25);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+    .product-card .img-wrap {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .product-card .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 6s ease;
+    }
+    .product-card:hover .img-wrap img {
+      transform: scale(1.1);
+    }
+    .product-card .info {
+      padding: 28px 24px;
+    }
+    .product-card .info .category {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .product-card .info h4 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .product-card .info .desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ============ GALLERY ============ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .gallery-item.visible { opacity: 1; transform: translateY(0); }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-item .gallery-overlay span {
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      padding: 10px 24px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 2px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .lightbox-close {
+      position: fixed; top: 28px; right: 36px;
+      font-size: 1.5rem; color: #fff; cursor: pointer;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      transition: background 0.2s;
+      z-index: 2001;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.18); }
+    .lightbox-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      font-size: 2rem; color: #fff; cursor: pointer;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: none; z-index: 2001;
+      transition: background 0.2s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.16); }
+    .lightbox-nav.prev { left: 24px; }
+    .lightbox-nav.next { right: 24px; }
+
+    /* ============ VIDEO SECTION ============ */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .video-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .video-card.visible { opacity: 1; transform: translateY(0); }
+    .video-card:hover {
+      border-color: rgba(201,169,110,0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .video-card video {
+      width: 100%;
+      display: block;
+      background: #000;
+      max-height: 420px;
+      object-fit: contain;
+    }
+    .video-card .v-info {
+      padding: 18px 22px;
+    }
+    .video-card .v-info .v-title {
+      font-size: 0.88rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .video-card .v-info .v-meta {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    /* ============ CONTACT ============ */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .contact-info h3 {
+      font-size: 1.5rem; font-weight: 300;
+      letter-spacing: 0.08em; color: var(--gold); margin-bottom: 24px;
+    }
+    .contact-info p {
+      color: var(--text-muted); font-size: 0.9rem;
+      letter-spacing: 0.04em; line-height: 2;
+    }
+    .contact-info .info-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-top: 28px;
+    }
+    .contact-info .info-icon {
+      font-size: 1.2rem; color: var(--gold); min-width: 24px; text-align: center;
+    }
+    .contact-info .info-text { font-size: 0.9rem; color: var(--text-muted); }
+    .contact-form { opacity: 0; transform: translateX(40px); }
+    .contact-form.visible { opacity: 1; transform: translateX(0); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%; padding: 14px 0;
+      background: transparent; border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text); font-size: 0.9rem;
+      font-family: inherit; letter-spacing: 0.04em;
+      transition: border-color 0.3s; outline: none;
+      margin-bottom: 28px;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-bottom-color: var(--gold); }
+    .contact-form textarea { min-height: 100px; resize: vertical; }
+    .contact-form button {
+      padding: 14px 44px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .contact-form button:hover { background: var(--gold); color: #000; }
+
+    /* ============ FOOTER ============ */
+    footer {
+      text-align: center;
+      padding: 60px 40px;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+    footer .footer-brand {
+      font-size: 1.4rem; color: var(--gold); font-weight: 300;
+      letter-spacing: 0.12em; margin-bottom: 12px;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-image { aspect-ratio: 4/3; max-height: 500px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links {
+        position: fixed; inset: 0;
+        background: rgba(8,8,8,0.96);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .nav-links.open { opacity: 1; pointer-events: auto; }
+      .nav-links a { font-size: 1.1rem; }
+      .nav-toggle { display: flex; }
+      .section { padding: 80px 20px; }
+      .products-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .about-stat .num { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 2.4rem; letter-spacing: 0.12em; }
+      .hero-content .subtitle { font-size: 0.75rem; }
+      .hero-content .tagline { font-size: 0.85rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .section-header h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAV ======== -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-brand">沉香</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">首页</a></li>
+      <li><a href="#about">品牌故事</a></li>
+      <li><a href="#products">臻品</a></li>
+      <li><a href="#gallery">映像</a></li>
+      <li><a href="#video">视频</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section id="home" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+      <source src="videos/hero_bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="subtitle">东 方 秘 境 · 稀 世 臻 品</span>
+      <h1>沉 香</h1>
+      <p class="tagline">千年香道传承，以匠心铸就不朽收藏</p>
+      <a href="#about" class="btn">探 索 品 牌</a>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+      向下滚动
+    </div>
+  </section>
+
+  <!-- ======== ABOUT ======== -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <span class="en">Our Story</span>
+      <h2>品 牌 故 事</h2>
+      <div class="divider"></div>
+      <p>以敬畏之心，守护每一缕来自大自然的馈赠</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-image">
+        <picture>
+          <source srcset="images/2192625998b664d922e47cd7ddc76387.webp" type="image/webp">
+          <img src="images/2192625998b664d922e47cd7ddc76387_opt.jpg" alt="沉香品牌故事" loading="lazy">
+        </picture>
+      </div>
+      <div class="about-text">
+        <h3>天地孕育，岁月沉香</h3>
+        <p>
+          沉香，又名琼脂、沉水香，乃是大自然最神秘的馈赠。瑞香科树木在历经数十载乃至上百年的自然创伤后，
+          分泌树脂与木质交融，终成此稀世奇珍。自古以来，沉香便是皇室贵胄、文人雅士珍藏把玩的至宝。
+        </p>
+        <p>
+          我们深入东南亚原始雨林腹地，与当地世代采香人为伴，以近乎苛刻的标准甄选每一块沉香原材。
+          从结香年份、油脂密度到香韵层次，皆经大师级匠人反复品鉴，方得以入藏。
+        </p>
+        <p>
+          这不仅是一份事业，更是一种使命——让千年香道文化在当代焕发新生，
+          让每一位藏家都能感受到天地精华凝聚于一缕青烟中的无言之美。
+        </p>
+        <div class="about-stats">
+          <div class="about-stat"><div class="num">30+</div><div class="lbl">年寻香历程</div></div>
+          <div class="about-stat"><div class="num">5</div><div class="lbl">国核心产区</div></div>
+          <div class="about-stat"><div class="num">∞</div><div class="lbl">千年传承</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PRODUCTS ======== -->
+  <section id="products" class="section">
+    <div class="section-header">
+      <span class="en">Collection</span>
+      <h2>臻 品 展 示</h2>
+      <div class="divider"></div>
+      <p>每一件藏品皆凝聚天地灵气与匠人精神</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="img-wrap">
+          <picture>
+            <source srcset="images/1f23cee08f3f07b1278853f1e5838e6c.webp" type="image/webp">
+            <img src="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg" alt="奇楠沉香" loading="lazy">
+          </picture>
+        </div>
+        <div class="info">
+          <div class="category">典藏系列</div>
+          <h4>奇楠 · 琼脂天香</h4>
+          <p class="desc">顶级奇楠沉香，油脂饱满，凉意沁心，初香、本香、尾香层次分明，为收藏之上上之选。</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="img-wrap">
+          <picture>
+            <source srcset="images/2192625998b664d922e47cd7ddc76387.webp" type="image/webp">
+            <img src="images/2192625998b664d922e47cd7ddc76387_opt.jpg" alt="沉香原材" loading="lazy">
+          </picture>
+        </div>
+        <div class="info">
+          <div class="category">原材系列</div>
+          <h4>惠安 · 老料原木</h4>
+          <p class="desc">越南惠安产区三十年老料，蜜甜花香，醇厚绵长。可雕可品，极具升值潜力。</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="img-wrap">
+          <picture>
+            <source srcset="images/91cbfd9c9a27aa28bd858bc4aa0f871e.webp" type="image/webp">
+            <img src="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg" alt="沉香摆件" loading="lazy">
+          </picture>
+        </div>
+        <div class="info">
+          <div class="category">艺术系列</div>
+          <h4>星洲 · 天然随形</h4>
+          <p class="desc">印尼星洲系天然随形摆件，造型天成，置于案头书房，满室生香，雅致非凡。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== GALLERY ======== -->
+  <section id="gallery" class="section">
+    <div class="section-header">
+      <span class="en">Gallery</span>
+      <h2>品 牌 映 像</h2>
+      <div class="divider"></div>
+      <p>光影之间，感受沉香的静谧与力量</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/1f23cee08f3f07b1278853f1e5838e6c.webp" type="image/webp">
+          <img src="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg" alt="沉香映像 1" loading="lazy">
+        </picture>
+        <div class="gallery-overlay"><span>查看大图</span></div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/2192625998b664d922e47cd7ddc76387.webp" type="image/webp">
+          <img src="images/2192625998b664d922e47cd7ddc76387_opt.jpg" alt="沉香映像 2" loading="lazy">
+        </picture>
+        <div class="gallery-overlay"><span>查看大图</span></div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/91cbfd9c9a27aa28bd858bc4aa0f871e.webp" type="image/webp">
+          <img src="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg" alt="沉香映像 3" loading="lazy">
+        </picture>
+        <div class="gallery-overlay"><span>查看大图</span></div>
+      </div>
+    </div>
+  </section>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close">✕</button>
+    <button class="lightbox-nav prev">‹</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav next">›</button>
+  </div>
+
+  <!-- ======== VIDEO ======== -->
+  <section id="video" class="section">
+    <div class="section-header">
+      <span class="en">Video</span>
+      <h2>视 频 展 示</h2>
+      <div class="divider"></div>
+      <p>以动态影像，记录沉香的非凡旅程</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls preload="none" playsinline
+               poster="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg">
+          <source src="videos/video_01_opt.mp4" type="video/mp4">
+        </video>
+        <div class="v-info">
+          <div class="v-title">采香之旅 · 探秘原始雨林</div>
+          <div class="v-meta">采香之旅 · 探秘原始雨林</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+               poster="images/2192625998b664d922e47cd7ddc76387_opt.jpg">
+          <source src="videos/video_02_opt.mp4" type="video/mp4">
+        </video>
+        <div class="v-info">
+          <div class="v-title">匠人之心 · 沉香加工工艺</div>
+          <div class="v-meta">匠人之心 · 沉香加工工艺</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+               poster="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
+          <source src="videos/video_03_opt.mp4" type="video/mp4">
+        </video>
+        <div class="v-info">
+          <div class="v-title">品香之道 · 香席雅集</div>
+          <div class="v-meta">品香之道 · 香席雅集</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+               poster="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg">
+          <source src="videos/video_04_opt.mp4" type="video/mp4">
+        </video>
+        <div class="v-info">
+          <div class="v-title">沉香之美 · 典藏鉴赏</div>
+          <div class="v-meta">沉香之美 · 典藏鉴赏</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT ======== -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <span class="en">Contact</span>
+      <h2>联 系 我 们</h2>
+      <div class="divider"></div>
+      <p>期待与每一位沉香爱好者相遇</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>垂询 · 合作 · 收藏</h3>
+        <p>
+          无论您是资深藏家，还是初识沉香，我们都诚挚欢迎您的到来。
+          预约线下品鉴，或咨询藏品详情，请通过以下方式与我们取得联系。
+        </p>
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <span class="info-text">中国 · 广东省 · 广州市</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">✉️</span>
+          <span class="info-text">contact@chenxiang.com</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📱</span>
+          <span class="info-text">+86 400-XXX-XXXX</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🕐</span>
+          <span class="info-text">周一至周六 10:00 - 18:00（预约制）</span>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('感谢您的留言！我们将尽快与您联系。');">
+        <input type="text" placeholder="您的姓名" required>
+        <input type="email" placeholder="电子邮箱" required>
+        <input type="tel" placeholder="联系电话">
+        <textarea placeholder="请在此留下您的留言或咨询内容……" required></textarea>
+        <button type="submit">发 送 留 言</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <div class="footer-brand">沉 香</div>
+    <p style="margin-top:8px;">东方顶级沉香品牌 &copy; 2026. All Rights Reserved.</p>
+    <p style="margin-top:4px;">天地孕育 · 岁月沉香</p>
+  </footer>
+
+  <!-- ======== SCRIPTS ======== -->
+  <script>
+  (function() {
+    // ── Navigation scroll effect ──
+    const nav = document.getElementById('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navAnchors = navLinks.querySelectorAll('a');
+
+    // Toggle mobile menu
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    navAnchors.forEach(a => {
+      a.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Scroll state for nav
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 60);
+
+      // Active section tracking
+      const sections = document.querySelectorAll('section[id]');
+      let current = '';
+      sections.forEach(sec => {
+        if (y >= sec.offsetTop - 200) {
+          current = sec.getAttribute('id');
+        }
+      });
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+
+      lastScroll = y;
+    });
+
+    // Smooth scroll offset for fixed nav
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // ── Intersection Observer for scroll animations ──
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -60px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe section headers
+    document.querySelectorAll('.section-header').forEach(el => observer.observe(el));
+    // Observe about elements
+    document.querySelectorAll('.about-image, .about-text').forEach(el => observer.observe(el));
+    // Observe product cards (with staggered delay)
+    document.querySelectorAll('.product-card').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.15) + 's';
+      observer.observe(el);
+    });
+    // Observe gallery items
+    document.querySelectorAll('.gallery-item').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.1) + 's';
+      observer.observe(el);
+    });
+    // Observe video cards
+    document.querySelectorAll('.video-card').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.15) + 's';
+      observer.observe(el);
+    });
+    // Observe contact form
+    document.querySelector('.contact-form') && observer.observe(document.querySelector('.contact-form'));
+
+    // ── Lightbox ──
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const galleryImages = [
+      'images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg',
+      'images/2192625998b664d922e47cd7ddc76387_opt.jpg',
+      'images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg',
+    ];
+    let lightboxIdx = 0;
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        const src = img.getAttribute('src');
+        lightboxIdx = galleryImages.indexOf(src);
+        if (lightboxIdx < 0) lightboxIdx = 0;
+        showLightbox();
+      });
+    });
+
+    function showLightbox() {
+      lightboxImg.src = galleryImages[lightboxIdx];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function prevImage() {
+      lightboxIdx = (lightboxIdx - 1 + galleryImages.length) % galleryImages.length;
+      showLightbox();
+    }
+    function nextImage() {
+      lightboxIdx = (lightboxIdx + 1) % galleryImages.length;
+      showLightbox();
+    }
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-nav.prev').addEventListener('click', function(e) {
+      e.stopPropagation(); prevImage();
+    });
+    document.querySelector('.lightbox-nav.next').addEventListener('click', function(e) {
+      e.stopPropagation(); nextImage();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
+
+    // ── Fade hero on scroll ──
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const opacity = Math.max(0, 1 - y / 500);
+      heroContent.style.opacity = opacity;
+      heroContent.style.transform = `translateY(${y * 0.3}px)`;
+    });
+
+    // ── Trigger hero animation on load ──
+    window.dispatchEvent(new Event('scroll'));
+
+  })();
+  </script>
+
+</body>
+</html>
