@@ -829,7 +829,7 @@
       <div class="video-card">
         <video controls preload="none" playsinline
                poster="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg">
-          <source src="videos/video_01_opt.mp4" type="video/mp4">
+          <source src="videos/video_01_mobile.mp4" type="video/mp4">
         </video>
         <div class="v-info">
           <div class="v-title">采香之旅 · 探秘原始雨林</div>
@@ -839,7 +839,7 @@
       <div class="video-card">
         <video controls preload="none" playsinline
                poster="images/2192625998b664d922e47cd7ddc76387_opt.jpg">
-          <source src="videos/video_02_opt.mp4" type="video/mp4">
+          <source src="videos/video_02_mobile.mp4" type="video/mp4">
         </video>
         <div class="v-info">
           <div class="v-title">匠人之心 · 沉香加工工艺</div>
@@ -849,7 +849,7 @@
       <div class="video-card">
         <video controls preload="none" playsinline
                poster="images/91cbfd9c9a27aa28bd858bc4aa0f871e_opt.jpg">
-          <source src="videos/video_03_opt.mp4" type="video/mp4">
+          <source src="videos/video_03_mobile.mp4" type="video/mp4">
         </video>
         <div class="v-info">
           <div class="v-title">品香之道 · 香席雅集</div>
@@ -859,7 +859,7 @@
       <div class="video-card">
         <video controls preload="none" playsinline
                poster="images/1f23cee08f3f07b1278853f1e5838e6c_opt.jpg">
-          <source src="videos/video_04_opt.mp4" type="video/mp4">
+          <source src="videos/video_04_mobile.mp4" type="video/mp4">
         </video>
         <div class="v-info">
           <div class="v-title">沉香之美 · 典藏鉴赏</div>
@@ -1080,30 +1080,44 @@
       var v = document.getElementById('heroVideo');
       if (!v) return;
 
-      // Try to play immediately
-      var playPromise = v.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(function() {
-          // Autoplay was blocked, retry on first user interaction
-          var retry = function() {
-            v.play().catch(function(){});
-            document.removeEventListener('touchstart', retry);
-            document.removeEventListener('click', retry);
-            document.removeEventListener('scroll', retry);
-          };
-          document.addEventListener('touchstart', retry, { once: true });
-          document.addEventListener('click', retry, { once: true });
+      var attempts = 0;
+      var maxAttempts = 30;
+
+      function tryPlay() {
+        attempts++;
+        if (!v) return;
+        v.play().then(function() {
+          // Success! Stop retrying
+          attempts = maxAttempts;
+        }).catch(function() {
+          if (attempts < maxAttempts) {
+            setTimeout(tryPlay, 300); // Retry every 300ms
+          }
         });
       }
 
-      // WeChat X5: sometimes needs visibility change to trigger
+      // Start retry loop immediately
+      tryPlay();
+
+      // Also trigger on any user interaction (most reliable mobile trigger)
+      var userEvents = ['touchstart', 'touchend', 'click', 'scroll', 'gesturestart'];
+      userEvents.forEach(function(evt) {
+        document.addEventListener(evt, function() {
+          v.play().catch(function(){});
+        }, { once: true });
+      });
+
+      // WeChat JS Bridge (may have fired already, check both ways)
+      if (typeof WeixinJSBridge !== 'undefined') {
+        v.play().catch(function(){});
+      }
       document.addEventListener('WeixinJSBridgeReady', function() {
         v.play().catch(function(){});
       });
 
-      // Fallback: retry after page fully loads
-      window.addEventListener('load', function() {
-        v.play().catch(function(){});
+      // Visibility change (user switches back to WeChat)
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) v.play().catch(function(){});
       });
     })();
 
